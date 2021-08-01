@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ManyTools.UnityExtended.Damage
+namespace Ninito.UsualSuspects.Damage
 {
     [CreateAssetMenu(fileName = CreateAssetMenus.DamageTypeFileName, menuName = CreateAssetMenus.DamageTypeMenuName,
         order = CreateAssetMenus.DamageTypeOrder)]

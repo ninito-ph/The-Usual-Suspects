@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace ManyTools.UnityExtended.Pooling
+namespace Ninito.UsualSuspects.Pooling
 {
     /// <summary>
     ///     A struct that holds data for display in the editor about default pools

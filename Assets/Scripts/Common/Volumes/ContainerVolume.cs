@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace ManyTools.UnityExtended.Volumes
+namespace Ninito.UsualSuspects.Volumes
 {
     /// <summary>
     ///     A trigger volume that keeps track of which items are in it

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace ManyTools.UnityExtended.SaveSystem
+namespace Ninito.UsualSuspects.SaveSystem
 {
     /// <summary>
     ///     A class that handles collecting and saving all existent saveables in a scene

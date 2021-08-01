@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace ManyTools.UnityExtended.FlexibleLayout
+namespace Ninito.UsualSuspects.FlexibleLayout
 {
     /// <summary>
     ///     A flexible layout capable of imitating grid, horizontal and vertical layout, with high customizability

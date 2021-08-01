@@ -1,7 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 
-namespace ManyTools.UnityExtended.Utilities
+namespace Ninito.UsualSuspects.Utilities
 {
     /// <summary>
     ///     A class that contains various utility functions related to text

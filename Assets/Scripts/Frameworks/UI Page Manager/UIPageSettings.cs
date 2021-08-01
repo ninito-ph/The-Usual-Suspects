@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ManyTools.UnityExtended
+namespace Ninito.UsualSuspects
 {
     /// <summary>
     ///     A data container class that

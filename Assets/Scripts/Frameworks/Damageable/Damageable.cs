@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ManyTools.UnityExtended.Damage
+namespace Ninito.UsualSuspects.Damage
 {
     [Serializable]
     public class Damageable

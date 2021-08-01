@@ -1,9 +1,9 @@
 ﻿using FluentAssertions;
-using ManyTools.UnityExtended.Damage;
+using Ninito.UsualSuspects.Damage;
 using NSubstitute;
 using NUnit.Framework;
 
-namespace ManyTools.UnityExtended.Tests.Damageable
+namespace Ninito.UsualSuspects.Tests.Damageable
 {
     public class DamageableTestSuite
     {

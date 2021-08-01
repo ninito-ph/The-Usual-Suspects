@@ -1,4 +1,4 @@
-﻿namespace ManyTools.UnityExtended.Interactable
+﻿namespace Ninito.UsualSuspects.Interactable
 {
     /// <summary>
     ///     An interface that defines an object that can be interacted with

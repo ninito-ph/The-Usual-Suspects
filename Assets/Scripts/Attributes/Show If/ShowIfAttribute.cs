@@ -1,14 +1,14 @@
 using System;
 using UnityEngine;
 
-namespace ManyTools.UnityExtended
+namespace Ninito.UsualSuspects
 {
     /// <summary>
     ///     A field that is only displayed if a given condition is met
     /// </summary>
     [AttributeUsage(validOn: AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Class |
                              AttributeTargets.Struct | AttributeTargets.Struct)]
-    public class ShowFieldIfAttribute : PropertyAttribute
+    public class ShowIfAttribute : PropertyAttribute
     {
         #region Properties
 
@@ -22,7 +22,7 @@ namespace ManyTools.UnityExtended
         ///     Creates a ShowIfAttribute with a given condition
         /// </summary>
         /// <param name="conditionFieldName">The exact name of the field to use as a condition. Must be a bool</param>
-        public ShowFieldIfAttribute(string conditionFieldName)
+        public ShowIfAttribute(string conditionFieldName)
         {
             ConditionFieldName = conditionFieldName;
         }

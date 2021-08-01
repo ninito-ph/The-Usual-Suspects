@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace ManyTools.UnityExtended.WeightedPool
+namespace Ninito.UsualSuspects.WeightedPool
 {
     /// <summary>
     ///     A pool of objects with weights

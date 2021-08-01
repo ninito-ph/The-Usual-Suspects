@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ManyTools.UnityExtended.Pooling
+namespace Ninito.UsualSuspects.Pooling
 {
     /// <summary>
     ///     An interface that describes a poolable component

@@ -1,10 +1,10 @@
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using ManyTools.UnityExtended.SaveSystem.Surrogates;
+using Ninito.UsualSuspects.SaveSystem.Surrogates;
 using UnityEngine;
 
-namespace ManyTools.UnityExtended.SaveSystem
+namespace Ninito.UsualSuspects.SaveSystem
 {
     /// <summary>
     ///     A class that manages saving and loading objects

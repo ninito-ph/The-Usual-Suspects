@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ManyTools.UnityExtended
+namespace Ninito.UsualSuspects
 {
     /// <summary>
     ///     An interface that defines essential functions for an UI page

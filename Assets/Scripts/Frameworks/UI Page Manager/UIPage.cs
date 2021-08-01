@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace ManyTools.UnityExtended
+namespace Ninito.UsualSuspects
 {
     [RequireComponent(requiredComponent: typeof(AudioSource))]
     public class UIPage : MonoBehaviour, IUIPage

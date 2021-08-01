@@ -2,12 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using ManyTools.UnityExtended.Volumes;
+using Ninito.UsualSuspects.Volumes;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace ManyTools.UnityExtended.Interactable
+namespace Ninito.UsualSuspects.Interactable
 {
     /// <summary>
     ///     A simple class that provides basic interaction functionality

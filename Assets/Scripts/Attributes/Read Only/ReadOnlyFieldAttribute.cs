@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ManyTools.UnityExtended.Editor
+namespace Ninito.UsualSuspects.Editor
 {
     /// <summary>
     ///     A field attribute that marks a property as non-editable in the inspector

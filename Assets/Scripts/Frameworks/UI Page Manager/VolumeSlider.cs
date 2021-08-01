@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
 
-namespace ManyTools.UnityExtended
+namespace Ninito.UsualSuspects
 {
     public class VolumeSlider : MonoBehaviour
     {

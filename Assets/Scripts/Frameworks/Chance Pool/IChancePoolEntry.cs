@@ -1,4 +1,4 @@
-﻿namespace ManyTools.UnityExtended.WeightedPool
+﻿namespace Ninito.UsualSuspects.WeightedPool
 {
     /// <summary>
     ///     An interface that defines an entry containing a type T item and chance for a chance pool

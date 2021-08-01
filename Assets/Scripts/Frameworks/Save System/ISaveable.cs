@@ -1,4 +1,4 @@
-﻿namespace ManyTools.UnityExtended.SaveSystem
+﻿namespace Ninito.UsualSuspects.SaveSystem
 {
     /// <summary>
     ///     An interface that makes any component easily saveable

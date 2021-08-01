@@ -1,4 +1,4 @@
-﻿namespace ManyTools.UnityExtended
+﻿namespace Ninito.UsualSuspects
 {
     /// <summary>
     ///     A class that holds all Create Menu strings in one easy place for editing

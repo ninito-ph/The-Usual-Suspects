@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace ManyTools.UnityExtended.Pooling
+namespace Ninito.UsualSuspects.Pooling
 {
     /// <summary>
     ///     A pool of objects that can be reused

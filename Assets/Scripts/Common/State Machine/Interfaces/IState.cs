@@ -1,4 +1,4 @@
-﻿namespace ManyTools.UnityExtended
+﻿namespace Ninito.UsualSuspects
 {
     /// <summary>
     ///     An interface that describes basic functionality for a state machine's state

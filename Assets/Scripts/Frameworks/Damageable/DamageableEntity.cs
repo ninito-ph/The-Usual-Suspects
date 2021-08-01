@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace ManyTools.UnityExtended.Damage
+namespace Ninito.UsualSuspects.Damage
 {
     public class DamageableEntity : MonoBehaviour
     {

@@ -1,4 +1,4 @@
-﻿namespace ManyTools.UnityExtended
+﻿namespace Ninito.UsualSuspects
 {
     /// <summary>
     ///     An interface that circumvents Unity's serialization limitations

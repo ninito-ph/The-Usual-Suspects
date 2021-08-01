@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ManyTools.UnityExtended.Parallax
+namespace Ninito.UsualSuspects.Parallax
 {
     /// <summary>
     ///     A class that handles and controls parallax background movement

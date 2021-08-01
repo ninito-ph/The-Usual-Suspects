@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace ManyTools.UnityExtended.Editor
+namespace Ninito.UsualSuspects.Editor
 {
     /// <summary>
     ///     A property drawer for special fields
