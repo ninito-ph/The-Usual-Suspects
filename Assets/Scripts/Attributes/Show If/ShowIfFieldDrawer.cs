@@ -2,12 +2,12 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace ManyTools.UnityExtended
+namespace Ninito.UsualSuspects
 {
     /// <summary>
-    ///     A property drawer for <see cref="ShowFieldIfAttribute" />
+    ///     A property drawer for <see cref="ShowIfAttribute" />
     /// </summary>
-    [CustomPropertyDrawer(type: typeof(ShowFieldIfAttribute))]
+    [CustomPropertyDrawer(type: typeof(ShowIfAttribute))]
     public class ShowIfFieldDrawer : PropertyDrawer
     {
         #region PropertyDrawer Overrides
@@ -15,9 +15,9 @@ namespace ManyTools.UnityExtended
         public override void OnGUI(Rect position, SerializedProperty property,
             GUIContent label)
         {
-            var showIfAttribute = (ShowFieldIfAttribute) attribute;
+            var showIfAttribute = (ShowIfAttribute) attribute;
 
-            if (ShouldShow(showFieldIfAttribute: showIfAttribute, property: property))
+            if (ShouldShow(showIfAttribute: showIfAttribute, property: property))
             {
                 EditorGUI.PropertyField(position: position, property: property, label: label, includeChildren: true);
             }
@@ -25,9 +25,9 @@ namespace ManyTools.UnityExtended
 
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
-            var showIfAttribute = (ShowFieldIfAttribute) attribute;
+            var showIfAttribute = (ShowIfAttribute) attribute;
 
-            if (ShouldShow(showFieldIfAttribute: showIfAttribute, property: property))
+            if (ShouldShow(showIfAttribute: showIfAttribute, property: property))
             {
                 return EditorGUI.GetPropertyHeight(property: property, label: label);
             }
@@ -43,14 +43,14 @@ namespace ManyTools.UnityExtended
         /// <summary>
         ///     Gets whether the field should be shown in the inspector
         /// </summary>
-        /// <param name="showFieldIfAttribute">The attribute to check for</param>
+        /// <param name="showIfAttribute">The attribute to check for</param>
         /// <param name="property">The serialized property the attribute is being used on</param>
         /// <returns>Whether the field should be shown in the inspector</returns>
-        private static bool ShouldShow(ShowFieldIfAttribute showFieldIfAttribute, SerializedProperty property)
+        private static bool ShouldShow(ShowIfAttribute showIfAttribute, SerializedProperty property)
         {
             // Gets the path to the property named as the condition in the attribute
             string conditionPath = property.propertyPath.Replace(oldValue: property.name,
-                newValue: showFieldIfAttribute.ConditionFieldName);
+                newValue: showIfAttribute.ConditionFieldName);
 
             SerializedProperty conditionValue = property.serializedObject.FindProperty(propertyPath: conditionPath);
 

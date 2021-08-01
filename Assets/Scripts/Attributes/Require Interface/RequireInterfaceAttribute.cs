@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace ManyTools.UnityExtended.Editor
+namespace Ninito.UsualSuspects.Editor
 {
     /// <summary>
     ///     A field attribute that only receives an interface of the given type
