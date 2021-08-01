@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ManyTools.UnityExtended
+namespace Ninito.UsualSuspects
 {
     /// <summary>
     ///     A dictionary serializable by Unity
@@ -16,17 +16,13 @@ namespace ManyTools.UnityExtended
         [SerializeField]
         private List<KeyValuePair> keyValueList = new List<KeyValuePair>();
 
-        [SerializeField]
-        private Dictionary<TKey, int> indexByKey = new Dictionary<TKey, int>();
-
-        [SerializeField]
-        [HideInInspector]
         private Dictionary<TKey, TValue> dictionary = new Dictionary<TKey, TValue>();
 
         #pragma warning disable 0414
-        [SerializeField]
-        [HideInInspector]
+
+        [SerializeField, HideInInspector]
         private bool keyCollision;
+
         #pragma warning restore 0414
 
         #endregion
@@ -53,7 +49,7 @@ namespace ManyTools.UnityExtended
         /// <param name="item">The key value pair to add to the dictionary</param>
         public void Add(KeyValuePair<TKey, TValue> item)
         {
-            Add(key: item.Key, value: item.Value);
+            Add(item.Key, item.Value);
         }
 
         /// <summary>
@@ -64,7 +60,6 @@ namespace ManyTools.UnityExtended
             // Clears the internal dictionary, index key dictionary and serialized list
             dictionary.Clear();
             keyValueList.Clear();
-            indexByKey.Clear();
         }
 
         /// <summary>
@@ -75,8 +70,8 @@ namespace ManyTools.UnityExtended
         public bool Contains(KeyValuePair<TKey, TValue> item)
         {
             // If the value exists
-            return dictionary.TryGetValue(key: item.Key, value: out TValue value) &&
-                   EqualityComparer<TValue>.Default.Equals(x: value, y: item.Value);
+            return dictionary.TryGetValue(item.Key, out TValue value) &&
+                   EqualityComparer<TValue>.Default.Equals(value, item.Value);
         }
 
 
@@ -94,20 +89,20 @@ namespace ManyTools.UnityExtended
         {
             if (array == null)
             {
-                throw new ArgumentException(message: "The array cannot be null");
+                throw new ArgumentException("The array cannot be null");
             }
 
             if (array.Length - arrayIndex < dictionary.Count)
             {
-                throw new ArgumentException(message: "The destination array has fewer elements than" +
-                                                     " the collection.");
+                throw new ArgumentException("The destination array has fewer elements than" +
+                                            " the collection.");
             }
 
             if (arrayIndex < 0)
             {
-                throw new ArgumentOutOfRangeException(paramName: nameof(arrayIndex),
-                    message: "The starting array index " +
-                             "cannot be negative.");
+                throw new ArgumentOutOfRangeException(nameof(arrayIndex),
+                    "The starting array index " +
+                    "cannot be negative.");
             }
 
             foreach (var keyValuePair in dictionary)
@@ -124,11 +119,11 @@ namespace ManyTools.UnityExtended
         /// <returns>Whether it successfully removed the KeyValuePair</returns>
         public bool Remove(KeyValuePair<TKey, TValue> item)
         {
-            if (!dictionary.TryGetValue(key: item.Key, value: out TValue value)) return false;
+            if (!dictionary.TryGetValue(item.Key, out TValue value)) return false;
 
-            bool valueMatch = EqualityComparer<TValue>.Default.Equals(x: value, y: item.Value);
+            bool valueMatch = EqualityComparer<TValue>.Default.Equals(value, item.Value);
 
-            return valueMatch && Remove(key: item.Key);
+            return valueMatch && Remove(item.Key);
         }
 
         /// <summary>
@@ -139,13 +134,10 @@ namespace ManyTools.UnityExtended
         public void Add(TKey key, TValue value)
         {
             // Adds value to dictionary
-            dictionary.Add(key: key, value: value);
+            dictionary.Add(key, value);
 
             // Adds value to serialized list
-            keyValueList.Add(item: new KeyValuePair(key: key, value: value));
-
-            // Adds value index to the index list
-            indexByKey.Add(key: key, value: keyValueList.Count - 1);
+            keyValueList.Add(new KeyValuePair(key, value));
         }
 
         /// <summary>
@@ -155,39 +147,12 @@ namespace ManyTools.UnityExtended
         /// <returns>Whether the key exists in the Dictionary</returns>
         public bool ContainsKey(TKey key)
         {
-            return dictionary.ContainsKey(key: key);
+            return dictionary.ContainsKey(key);
         }
 
         public bool Remove(TKey key)
         {
-            // If the dictionary could remove the given key
-            if (!dictionary.Remove(key: key)) return false;
-
-            // Gets the key's index
-            int index = indexByKey[key: key];
-
-            // Removes the value and key from the KeyValue list
-            keyValueList.RemoveAt(index: index);
-
-            UpdateIndexes(removedIndex: index);
-
-            // Remove the key from the index list
-            indexByKey.Remove(key: key);
-
-            return true;
-        }
-
-        /// <summary>
-        ///     Updates all indexes in the Key by Index list
-        /// </summary>
-        /// <param name="removedIndex">The index that was removed</param>
-        private void UpdateIndexes(int removedIndex)
-        {
-            for (int index = removedIndex, upper = keyValueList.Count; index < upper; index++)
-            {
-                TKey key = keyValueList[index: index].key;
-                indexByKey[key: key]--;
-            }
+            return dictionary.Remove(key);
         }
 
         /// <summary>
@@ -198,7 +163,7 @@ namespace ManyTools.UnityExtended
         /// <returns>Whether a value was found</returns>
         public bool TryGetValue(TKey key, out TValue value)
         {
-            return dictionary.TryGetValue(key: key, value: out value);
+            return dictionary.TryGetValue(key, out value);
         }
 
         /// <summary>
@@ -207,24 +172,13 @@ namespace ManyTools.UnityExtended
         /// <param name="key">The key to set to a given value</param>
         public TValue this[TKey key]
         {
-            get => dictionary[key: key];
+            get => dictionary[key];
             set
             {
                 // Sets value
-                dictionary[key: key] = value;
+                dictionary[key] = value;
 
-                if (indexByKey.ContainsKey(key: key))
-                {
-                    // Replaces a preexisting key value index
-                    int index = indexByKey[key: key];
-                    keyValueList[index: index] = new KeyValuePair(key: key, value: value);
-                }
-                else
-                {
-                    // Creates a new key value index
-                    keyValueList.Add(item: new KeyValuePair(key: key, value: value));
-                    indexByKey.Add(key: key, value: keyValueList.Count - 1);
-                }
+                keyValueList.Add(new KeyValuePair(key, value));
             }
         }
 
@@ -248,16 +202,14 @@ namespace ManyTools.UnityExtended
         public void OnAfterDeserialize()
         {
             dictionary.Clear();
-            indexByKey.Clear();
             keyCollision = false;
 
             for (int index = 0, upper = keyValueList.Count; index < upper; index++)
             {
                 // Adds key and value if no key collision is detected
-                if (keyValueList[index: index].key != null && !ContainsKey(key: keyValueList[index: index].key))
+                if (keyValueList[index].key != null && !ContainsKey(keyValueList[index].key))
                 {
-                    dictionary.Add(key: keyValueList[index: index].key, value: keyValueList[index: index].value);
-                    indexByKey.Add(key: keyValueList[index: index].key, value: index);
+                    dictionary.Add(keyValueList[index].key, keyValueList[index].value);
                 }
                 else
                 {

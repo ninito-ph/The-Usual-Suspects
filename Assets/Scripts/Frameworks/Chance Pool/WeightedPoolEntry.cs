@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace ManyTools.UnityExtended.WeightedPool
+namespace Ninito.UsualSuspects.WeightedPool
 {
     /// <summary>
     ///     A class that contains a specific weighed pool entry

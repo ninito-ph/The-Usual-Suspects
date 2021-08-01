@@ -1,4 +1,4 @@
-﻿namespace ManyTools.UnityExtended.ProgressBar
+﻿namespace Ninito.UsualSuspects.ProgressBar
 {
     /// <summary>
     /// An interface that defines something with measurable progress 

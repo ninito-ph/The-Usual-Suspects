@@ -1,8 +1,8 @@
 using System.Linq;
-using ManyTools.UnityExtended.CommonExtensions;
+using Ninito.UsualSuspects.CommonExtensions;
 using UnityEngine;
 
-namespace ManyTools.UnityExtended
+namespace Ninito.UsualSuspects
 {
     /// <summary>
     ///     A template state machine pattern

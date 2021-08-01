@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace ManyTools.UnityExtended
+namespace Ninito.UsualSuspects
 {
     /// <summary>
     ///     A state read and performed by a <see cref="StateMachine" />

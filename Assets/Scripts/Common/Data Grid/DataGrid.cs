@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Linq;
 
-namespace ManyTools.UnityExtended.DataGrid
+namespace Ninito.UsualSuspects.DataGrid
 {
     /// <summary>
     ///     A grid of data

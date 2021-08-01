@@ -1,9 +1,9 @@
 ﻿using TMPro;
 using System;
-using ManyTools.UnityExtended.Utilities;
+using Ninito.UsualSuspects.Utilities;
 using UnityEngine;
 
-namespace ManyTools.UnityExtended.DataGrid
+namespace Ninito.UsualSuspects.DataGrid
 {
     /// <summary>
     ///     A class that provides a view into a spatial grid

@@ -1,7 +1,7 @@
 ﻿using System.Runtime.Serialization;
 using UnityEngine;
 
-namespace ManyTools.UnityExtended.SaveSystem.Surrogates
+namespace Ninito.UsualSuspects.SaveSystem.Surrogates
 {
     public class Vector4SerializationSurrogate : ISerializationSurrogate
     {

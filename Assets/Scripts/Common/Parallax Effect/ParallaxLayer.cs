@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace ManyTools.UnityExtended.Parallax
+namespace Ninito.UsualSuspects.Parallax
 {
     /// <summary>
     ///     A class that controls and defines a Parallax Layer

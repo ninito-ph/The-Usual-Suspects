@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace ManyTools.UnityExtended.Pooling
+namespace Ninito.UsualSuspects.Pooling
 {
     /// <summary>
     ///     A component that connects to and manages other poolable components

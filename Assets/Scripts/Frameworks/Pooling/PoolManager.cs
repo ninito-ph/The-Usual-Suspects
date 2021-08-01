@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace ManyTools.UnityExtended.Pooling
+namespace Ninito.UsualSuspects.Pooling
 {
     /// <summary>
     ///     A class that autonomously manages and provides pools and pooled objects

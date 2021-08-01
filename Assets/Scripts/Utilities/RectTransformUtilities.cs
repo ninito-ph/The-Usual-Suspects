@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ManyTools.UnityExtended.Utilities
+namespace Ninito.UsualSuspects.Utilities
 {
     /// <summary>
     ///     A class containing various utility functions for RectTransforms

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 
-namespace ManyTools.UnityExtended.DataGrid
+namespace Ninito.UsualSuspects.DataGrid
 {
     /// <summary>
     ///     An enumerator for a grid

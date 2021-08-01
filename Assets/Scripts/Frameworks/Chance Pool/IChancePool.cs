@@ -1,4 +1,4 @@
-﻿namespace ManyTools.UnityExtended.WeightedPool
+﻿namespace Ninito.UsualSuspects.WeightedPool
 {
     /// <summary>
     ///     A pool that can be drawn from that utilizes chance select its items

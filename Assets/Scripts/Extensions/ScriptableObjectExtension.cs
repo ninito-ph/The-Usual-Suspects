@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ManyTools.UnityExtended.CommonExtensions
+namespace Ninito.UsualSuspects.CommonExtensions
 {
     /// <summary>
     ///     An extension class for ScriptableObject
