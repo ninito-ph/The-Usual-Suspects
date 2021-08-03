@@ -10,6 +10,7 @@ namespace Ninito.UsualSuspects.FlexibleLayout
     {
         #region Private Fields
 
+        [Header("Layout Parameters")]
         [SerializeField]
         private FitType fitType;
 
@@ -19,6 +20,7 @@ namespace Ninito.UsualSuspects.FlexibleLayout
         [SerializeField]
         private int columns;
 
+        [Header("Cell Parameters")]
         [SerializeField]
         private Vector2 cellSize;
 
@@ -55,7 +57,7 @@ namespace Ninito.UsualSuspects.FlexibleLayout
         public override void SetLayoutVertical()
         {
         }
-
+        
         #endregion
 
         #region Private Methods
@@ -66,20 +68,34 @@ namespace Ninito.UsualSuspects.FlexibleLayout
         private void SetRowAndColumnCount()
         {
             int childCount = transform.childCount;
-            float squareRoot = Mathf.Sqrt(f: childCount);
+            float squareRoot = Mathf.Sqrt(childCount);
 
-            if (fitType != FitType.Height && fitType != FitType.Width && fitType != FitType.Uniform) return;
+            if (IsFitTypeFixedColumnsOrRows()) return;
 
             fitX = true;
             fitY = true;
 
-            rows = fitType == FitType.Width || fitType == FitType.FixedColumns
-                ? Mathf.CeilToInt(f: childCount / (float) columns)
-                : Mathf.CeilToInt(f: squareRoot);
+            rows = GetRowCount(childCount, squareRoot);
+            columns = GetColumnCount(childCount, squareRoot);
+        }
 
-            columns = fitType == FitType.Height || fitType == FitType.FixedRows
-                ? Mathf.CeilToInt(f: childCount / (float) rows)
-                : Mathf.CeilToInt(f: squareRoot);
+        private int GetColumnCount(int childCount, float squareRoot)
+        {
+            return fitType == FitType.Height || fitType == FitType.FixedRows
+                ? Mathf.CeilToInt(childCount / (float) rows)
+                : Mathf.CeilToInt(squareRoot);
+        }
+
+        private int GetRowCount(int childCount, float squareRoot)
+        {
+            return fitType == FitType.Width || fitType == FitType.FixedColumns
+                ? Mathf.CeilToInt(childCount / (float) columns)
+                : Mathf.CeilToInt(squareRoot);
+        }
+
+        private bool IsFitTypeFixedColumnsOrRows()
+        {
+            return fitType == FitType.FixedColumns || fitType == FitType.FixedRows;
         }
 
         /// <summary>
@@ -92,13 +108,22 @@ namespace Ninito.UsualSuspects.FlexibleLayout
             float parentWidth = rect.width;
             float parentHeight = rect.height;
 
-            float cellWidth = parentWidth / columns - spacing.x / columns * (columns - 1) -
-                              padding.left / (float) columns - padding.right / (float) columns;
-
-            float cellHeight = parentHeight / rows - spacing.y / rows * (rows - 1) - padding.top / (float) rows -
-                               padding.bottom / (float) rows;
+            float cellWidth = GetCellWidth(parentWidth);
+            float cellHeight = GetCellHeight(parentHeight);
 
             return new Vector2 {x = fitX ? cellWidth : cellSize.x, y = fitY ? cellHeight : cellSize.y};
+        }
+
+        private float GetCellHeight(float parentHeight)
+        {
+            return parentHeight / rows - spacing.y / rows * (rows - 1) - padding.top / (float) rows -
+                   padding.bottom / (float) rows;
+        }
+
+        private float GetCellWidth(float parentWidth)
+        {
+            return parentWidth / columns - spacing.x / columns * (columns - 1) -
+                   padding.left / (float) columns - padding.right / (float) columns;
         }
 
         /// <summary>
@@ -113,13 +138,13 @@ namespace Ninito.UsualSuspects.FlexibleLayout
                 int rowCount = index / columns;
                 int columnCount = index % columns;
 
-                RectTransform item = rectChildren[index: index];
+                RectTransform item = rectChildren[index];
 
                 float xPosition = cellSize.x * columnCount + spacing.x * columnCount + padding.left;
                 float yPosition = cellSize.y * rowCount + spacing.y * rowCount + padding.top;
 
-                SetChildAlongAxis(rect: item, axis: 0, pos: xPosition, size: cellSize.x);
-                SetChildAlongAxis(rect: item, axis: 1, pos: yPosition, size: cellSize.y);
+                SetChildAlongAxis(item, 0, xPosition, cellSize.x);
+                SetChildAlongAxis(item, 1, yPosition, cellSize.y);
             }
         }
 

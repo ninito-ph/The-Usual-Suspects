@@ -11,28 +11,28 @@ namespace Ninito.UsualSuspects
     {
         #region Properties
 
-        [field: Header(header: "Audio Settings")]
+        [field: Header("Audio Settings")]
         [field: SerializeField]
-        public AudioClip EnterClip { get; } = null;
+        public AudioClip EnterClip { get; private set; } = null;
 
         [field: SerializeField]
-        public AudioClip ExitClip { get; } = null;
+        public AudioClip ExitClip { get; private set; } = null;
 
         [field: SerializeField]
-        public bool AffectMouse { get; } = false;
+        public bool AffectMouse { get; private set; } = false;
 
         [field: SerializeField]
-        public bool LockMouseOnEnter { get; } = false;
+        public bool LockMouseOnEnter { get; private set; } = false;
 
         [field: SerializeField]
-        public bool HideMouseOnEnter { get; } = false;
+        public bool HideMouseOnEnter { get; private set; } = false;
 
-        [field: Header(header: "Page Display")]
+        [field: Header("Page Display")]
         [field: SerializeField]
-        public Color ActiveColor { get; } = Color.white;
+        public Color ActiveColor { get; private set; } = Color.white;
 
         [field: SerializeField]
-        public Color InactiveColor { get; } = Color.white;
+        public Color InactiveColor { get; private set; } = Color.white;
 
         #endregion
     }

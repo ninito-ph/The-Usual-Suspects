@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 namespace Ninito.UsualSuspects
@@ -10,15 +10,14 @@ namespace Ninito.UsualSuspects
     {
         #region Private Fields
 
-        [Header(header: "UI Page Manager Settings")]
+        [Header("UI Page Manager Settings")]
         [SerializeField]
-        private string defaultPageKey = string.Empty;
+        private string defaultPageKey = String.Empty;
 
         [SerializeField]
         private SerializedDictionary<string, UIPage> uiPages = new SerializedDictionary<string, UIPage>();
 
         private UIPage _activePage;
-        private readonly List<UIPage> _overlayedPages = new List<UIPage>();
 
         #endregion
 
@@ -26,7 +25,7 @@ namespace Ninito.UsualSuspects
 
         private void Start()
         {
-            SwitchToPage(pageKey: defaultPageKey);
+            SwitchToPage(defaultPageKey);
         }
 
         #endregion
@@ -44,7 +43,7 @@ namespace Ninito.UsualSuspects
                 _activePage.Exit();
             }
 
-            _activePage = uiPages[key: pageKey];
+            _activePage = uiPages[pageKey];
             _activePage.Enter();
         }
 
@@ -54,8 +53,7 @@ namespace Ninito.UsualSuspects
         /// <param name="pageKey">The page to be entered</param>
         public void EnterPage(string pageKey)
         {
-            _overlayedPages.Add(item: uiPages[key: pageKey]);
-            uiPages[key: pageKey].Enter();
+            uiPages[pageKey].Enter();
         }
 
         /// <summary>
@@ -64,8 +62,7 @@ namespace Ninito.UsualSuspects
         /// <param name="pageKey">The page to be exited</param>
         public void ExitPage(string pageKey)
         {
-            _overlayedPages.Remove(item: uiPages[key: pageKey]);
-            uiPages[key: pageKey].Exit();
+            uiPages[pageKey].Exit();
         }
 
         /// <summary>
@@ -73,7 +70,6 @@ namespace Ninito.UsualSuspects
         /// </summary>
         public void ExitAllPages()
         {
-            _overlayedPages.Clear();
             _activePage = null;
 
             foreach (UIPage page in uiPages.Values)
