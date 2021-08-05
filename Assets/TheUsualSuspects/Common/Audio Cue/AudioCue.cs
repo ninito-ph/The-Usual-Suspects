@@ -16,16 +16,16 @@ namespace Ninito.UsualSuspects.AudioCue
         private AudioClip[] clips;
 
         [Header("Pitch"), SerializeField]
-        private float basePitch;
+        private float basePitch = 1f;
 
         [SerializeField]
-        private float pitchDeviation;
+        private float pitchDeviation = 0f;
 
         #endregion
 
         #region Public Methods
 
-        public (AudioClip, float) GetClipWithPitch()
+        public (AudioClip Clip, float Pitch) GetClipWithPitch()
         {
             return (GetClip(), GetPitch());
         }
