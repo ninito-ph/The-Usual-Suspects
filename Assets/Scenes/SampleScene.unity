@@ -558,6 +558,7 @@ MonoBehaviour:
     - key: 
       value: {fileID: 0}
     keyCollision: 1
+  slider: {x: 25.106918, y: 78.56}
 --- !u!4 &1700083156
 Transform:
   m_ObjectHideFlags: 0
