@@ -1,11 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Ninito.UsualSuspects.Editor
+namespace Ninito.UsualSuspects.Attributes
 {
     /// <summary>
     ///     A field attribute that gives it a given color, should it be null
     /// </summary>
+    [AttributeUsage(AttributeTargets.Field)]
     public class RequireFieldAttribute : PropertyAttribute
     {
         #region Properties
