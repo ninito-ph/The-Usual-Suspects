@@ -1,13 +1,13 @@
-﻿#if UNITY_EDITOR
+﻿using Ninito.UsualSuspects.Attributes;
 using UnityEditor;
 using UnityEngine;
 
-namespace Ninito.UsualSuspects
+namespace Ninito.UsualSuspects.Editor
 {
     /// <summary>
     ///     A property drawer for <see cref="ShowIfAttribute" />
     /// </summary>
-    [CustomPropertyDrawer(type: typeof(ShowIfAttribute))]
+    [CustomPropertyDrawer(typeof(ShowIfAttribute))]
     public class ShowIfFieldDrawer : PropertyDrawer
     {
         #region PropertyDrawer Overrides
@@ -15,21 +15,21 @@ namespace Ninito.UsualSuspects
         public override void OnGUI(Rect position, SerializedProperty property,
             GUIContent label)
         {
-            var showIfAttribute = (ShowIfAttribute) attribute;
+            var showIfAttribute = (ShowIfAttribute)attribute;
 
-            if (ShouldShow(showIfAttribute: showIfAttribute, property: property))
+            if (ShouldShow(showIfAttribute, property))
             {
-                EditorGUI.PropertyField(position: position, property: property, label: label, includeChildren: true);
+                EditorGUI.PropertyField(position, property, label, true);
             }
         }
 
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
-            var showIfAttribute = (ShowIfAttribute) attribute;
+            var showIfAttribute = (ShowIfAttribute)attribute;
 
-            if (ShouldShow(showIfAttribute: showIfAttribute, property: property))
+            if (ShouldShow(showIfAttribute, property))
             {
-                return EditorGUI.GetPropertyHeight(property: property, label: label);
+                return EditorGUI.GetPropertyHeight(property, label);
             }
 
             // Removes the space added before the property
@@ -49,18 +49,17 @@ namespace Ninito.UsualSuspects
         private static bool ShouldShow(ShowIfAttribute showIfAttribute, SerializedProperty property)
         {
             // Gets the path to the property named as the condition in the attribute
-            string conditionPath = property.propertyPath.Replace(oldValue: property.name,
-                newValue: showIfAttribute.ConditionFieldName);
+            string conditionPath = property.propertyPath.Replace(property.name,
+                showIfAttribute.ConditionFieldName);
 
-            SerializedProperty conditionValue = property.serializedObject.FindProperty(propertyPath: conditionPath);
+            SerializedProperty conditionValue = property.serializedObject.FindProperty(conditionPath);
 
             if (conditionValue != null) return conditionValue.boolValue;
 
-            Debug.LogError(message: "ShowIfFieldAttribute can only check for a bool condition!");
+            Debug.LogError("ShowIfFieldAttribute can only check for a bool condition!");
             return false;
         }
 
         #endregion
     }
 }
-#endif

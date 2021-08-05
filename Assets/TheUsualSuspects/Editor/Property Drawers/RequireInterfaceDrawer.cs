@@ -1,4 +1,4 @@
-﻿#if UNITY_EDITOR
+﻿using Ninito.UsualSuspects.Attributes;
 using UnityEditor;
 using UnityEngine;
 
@@ -85,4 +85,3 @@ namespace Ninito.UsualSuspects.Editor
         #endregion
     }
 }
-#endif
