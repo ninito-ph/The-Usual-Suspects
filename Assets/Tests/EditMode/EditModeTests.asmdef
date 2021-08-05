@@ -4,7 +4,7 @@
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "ManyTools UnityExtended"
+        "Ninito.TheUsualSuspects"
     ],
     "includePlatforms": [
         "Editor"

@@ -1,5 +1,4 @@
-﻿#if UNITY_EDITOR
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 
 namespace Ninito.UsualSuspects.Editor
@@ -7,7 +6,7 @@ namespace Ninito.UsualSuspects.Editor
     /// <summary>
     ///     A property drawer for readonly fields in the inspector
     /// </summary>
-    [CustomPropertyDrawer(type: typeof(ReadOnlyFieldAttribute))]
+    [CustomPropertyDrawer(typeof(ReadOnlyFieldAttribute))]
     public class ReadOnlyFieldDrawer : PropertyDrawer
     {
         #region PropertyDrawer Overrides
@@ -20,7 +19,7 @@ namespace Ninito.UsualSuspects.Editor
 
             // Draws disabled field
             GUI.enabled = false;
-            EditorGUI.PropertyField(position: position, property: property, label: label);
+            EditorGUI.PropertyField(position, property, label);
 
             // Restores previous state
             GUI.enabled = previousEnabledState;
@@ -29,4 +28,3 @@ namespace Ninito.UsualSuspects.Editor
         #endregion
     }
 }
-#endif

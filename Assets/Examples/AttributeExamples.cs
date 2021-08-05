@@ -1,4 +1,6 @@
+using Ninito.TheUsualSuspects.Attributes;
 using Ninito.UsualSuspects;
+using Ninito.UsualSuspects.Attributes;
 using Ninito.UsualSuspects.Editor;
 using Ninito.UsualSuspects.Interactable;
 using UnityEngine;
@@ -30,4 +32,7 @@ public class AttributeExamples : MonoBehaviour
     [Header("Serialized Dictionary Examples"), SerializeField]
     private SerializedDictionary<string, GameObject> serializedDictionary =
         new SerializedDictionary<string, GameObject>();
+
+    [Header("Min Max Slider Examples"), SerializeField, MinMaxSlider(0f, 100f)]
+    private Vector2 slider;
 }

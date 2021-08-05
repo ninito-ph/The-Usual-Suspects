@@ -1,13 +1,12 @@
 using System;
 using UnityEngine;
 
-namespace Ninito.UsualSuspects
+namespace Ninito.UsualSuspects.Attributes
 {
     /// <summary>
     ///     A field that is only displayed if a given condition is met
     /// </summary>
-    [AttributeUsage(validOn: AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Class |
-                             AttributeTargets.Struct | AttributeTargets.Struct)]
+    [AttributeUsage(AttributeTargets.Field)]
     public class ShowIfAttribute : PropertyAttribute
     {
         #region Properties
