@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using Ninito.UsualSuspects.Attributes;
+using UnityEditor;
 using UnityEngine;
 
 namespace Ninito.UsualSuspects.Editor
