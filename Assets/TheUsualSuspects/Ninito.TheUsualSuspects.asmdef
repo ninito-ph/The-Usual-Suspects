@@ -1,6 +1,6 @@
 {
-    "name": "ManyTools UnityExtended",
-    "rootNamespace": "ManyTools.UnityExtended",
+    "name": "Ninito.TheUsualSuspects",
+    "rootNamespace": "Ninito.TheUsualSuspects",
     "references": [
         "GUID:6055be8ebefd69e48b49212b09b47b2f",
         "GUID:bfaa19a0096728648a4c335e59c7b2a0"
