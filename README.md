@@ -3,6 +3,11 @@
 <p align="center">
   <a href="https://github.com/ninito-ph/The-Usual-Suspects">
     <img src="https://i.imgur.com/Ac5gbT9.png" alt="Ninito's The Usual Suspects" width="400" height="400">
+    <p align="center">
+    <img alt="GitHub tag (latest SemVer)" src="https://img.shields.io/github/v/tag/ninito-ph/The-Usual-Suspects?label=version&style=for-the-badge">
+    <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/ninito-ph/The-Usual-Suspects?label=size&style=for-the-badge">
+    <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/ninito-ph/The-Usual-Suspects?style=for-the-badge">
+      </p>
   </a>
 
 
