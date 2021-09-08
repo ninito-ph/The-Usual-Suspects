@@ -73,12 +73,15 @@ Download the latest UnityPackage and visit the wiki. Pick and choose which tools
 
 ### Prerequisites
 
-The tools were tested in Unity 2019 LST and 2020 LTS. Newer versions should work, but use them there at your own risk.
+The tools were tested in Unity 2019 LTS, 2020 LTS and 2021.1. Newer versions should work, but compatibility is not guaranteed.
 
 ### Installation
 
-1. Download the latest UnityPackage and import into your project.
-2. Add a reference to the Ninito.UsualSuspects assembly to your core assembly.
+1. Open the package manager.
+2. Click on the plus icon on the top left corner, and select 'Add package from git URL'.
+3. Paste in '[https://github.com/ninito-ph/The-Usual-Suspects.git](https://github.com/ninito-ph/The-Usual-Suspects.git)'.
+4. Import it into your project!
+
 
 
 <!-- USAGE EXAMPLES -->
