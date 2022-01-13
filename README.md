@@ -52,12 +52,12 @@ Here are the tools included in the project:
 * Base **_classes for easy grid-related functionality_**.
 * An improved **_grid layout class with superior customizability_**, called a Flexible Grid Layout.
 * A prepackaged, flexible **_framework for Parallax effects_**. 
-* A simple **_framework for displaying progress bars_**.
 * A serialized, **_inspector-viewable Dictionary class_**.
 * A template, **_inherit-and-forget singleton class_**.
 * A ScritptableObject-based **_state machine implementation_**.
 * A very simple **_trigger class that keeps track of colliders inside it_**.
 * A small **_set of extensions for ScriptableObject that reduce boilerplate code_**.
+* A small **_utility class for Camera-related functions_**.
 * A simple **_framework for randomly drawing objects_** from a pool using weights.
 * A reusable and highly flexible **_framework for handling health and damage_**, inspired by Unreal Engine's damage framework.
 * A **_framework for handling simple player interaction with objects_**.
