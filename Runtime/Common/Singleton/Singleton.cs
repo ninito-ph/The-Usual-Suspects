@@ -33,7 +33,7 @@ namespace Ninito.UsualSuspects
         // Overrideable check if another instance exists on awake
         protected virtual void Awake()
         {
-            if (Instance != null)
+            if (IsInitialized)
             {
                 Debug.LogError(message: $"A second instance of singleton {(T) this} has been initialized!");
             }
