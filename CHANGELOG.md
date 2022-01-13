@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [v2.0.0] - Sentient Sword Release - 2021-09-08
+## [v2.0.0] - Sentient Sword Release - 2022-01-13
 ### Added
 - Volume slider script for quick volume slider functionality
 
