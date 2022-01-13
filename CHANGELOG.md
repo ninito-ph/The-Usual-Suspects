@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v2.0.0] - Sentient Sword Release - 2021-09-08
+### Added
+- Volume slider script for quick volume slider functionality
+
+### Changed
+- Restored UI Page Manager to the old Window Manager, as the Window Manager is simpler, generally more useful and less complicated
+- Removed methods from the Window Manager that violated the SRP
+
 ## [v1.0.0] - Hungry Polearm Release - 2021-09-08
 ### Added
 - Initial release
