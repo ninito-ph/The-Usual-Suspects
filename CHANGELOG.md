@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v2.0.1] - Happy Halberd Release - 2022-01-14
+### Changed
+- Make FlexibleLayout's OnValidate Editor-only
+- Seal FlexibleLayout class
+- Add editor-time exit playmode to GameManager QuitApplication
+- Move GameManager to new namespace
+- Make GameManager members virtual
+
 ## [v2.0.0] - Sentient Sword Release - 2022-01-13
 ### Added
 - Volume slider script for quick volume slider functionality
