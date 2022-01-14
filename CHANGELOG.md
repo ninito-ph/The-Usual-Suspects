@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v2.0.1-minimal] - Quiet Quarterstaff Release - 2022-01-14
+### Removed
+- All samples
+
 ## [v2.0.1] - Happy Halberd Release - 2022-01-14
 ### Changed
 - Make FlexibleLayout's OnValidate Editor-only
