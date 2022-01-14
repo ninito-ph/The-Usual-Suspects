@@ -7,7 +7,7 @@ namespace Ninito.UsualSuspects.FlexibleLayout
     ///     A flexible layout capable of imitating grid, horizontal and vertical layout, with high customizability
     /// </summary>
     [ExecuteInEditMode]
-    public class FlexibleLayoutGroup : LayoutGroup
+    public sealed class FlexibleLayoutGroup : LayoutGroup
     {
         #region Private Fields
 
@@ -59,11 +59,13 @@ namespace Ninito.UsualSuspects.FlexibleLayout
         {
         }
 
+#if UNITY_EDITOR
         protected override void OnValidate()
         {
             base.OnValidate();
             ClampRowAndColumnValues();
         }
+#endif
 
         #endregion
 
@@ -74,7 +76,7 @@ namespace Ninito.UsualSuspects.FlexibleLayout
             rows = Mathf.Max(1, rows);
             columns = Mathf.Max(1, columns);
         }
-        
+
         /// <summary>
         ///     Calculates and sets the row and column count, according to the fit type
         /// </summary>
@@ -95,14 +97,14 @@ namespace Ninito.UsualSuspects.FlexibleLayout
         private int GetColumnCount(int childCount, float squareRoot)
         {
             return fitType == FitType.Width || fitType == FitType.FixedRows
-                ? Mathf.CeilToInt(childCount / (float) rows)
+                ? Mathf.CeilToInt(childCount / (float)rows)
                 : Mathf.CeilToInt(squareRoot);
         }
 
         private int GetRowCount(int childCount, float squareRoot)
         {
             return fitType == FitType.Height || fitType == FitType.FixedColumns
-                ? Mathf.CeilToInt(childCount / (float) columns)
+                ? Mathf.CeilToInt(childCount / (float)columns)
                 : Mathf.CeilToInt(squareRoot);
         }
 
@@ -124,19 +126,19 @@ namespace Ninito.UsualSuspects.FlexibleLayout
             float cellWidth = GetCellWidth(parentWidth);
             float cellHeight = GetCellHeight(parentHeight);
 
-            return new Vector2 {x = fitX ? cellWidth : cellSize.x, y = fitY ? cellHeight : cellSize.y};
+            return new Vector2 { x = fitX ? cellWidth : cellSize.x, y = fitY ? cellHeight : cellSize.y };
         }
 
         private float GetCellHeight(float parentHeight)
         {
-            return parentHeight / rows - spacing.y / rows * (rows - 1) - padding.top / (float) rows -
-                   padding.bottom / (float) rows;
+            return parentHeight / rows - spacing.y / rows * (rows - 1) - padding.top / (float)rows -
+                   padding.bottom / (float)rows;
         }
 
         private float GetCellWidth(float parentWidth)
         {
             return parentWidth / columns - spacing.x / columns * (columns - 1) -
-                   padding.left / (float) columns - padding.right / (float) columns;
+                   padding.left / (float)columns - padding.right / (float)columns;
         }
 
         /// <summary>

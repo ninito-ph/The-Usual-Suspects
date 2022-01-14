@@ -1,7 +1,8 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Ninito.UsualSuspects
+namespace Ninito.UsualSuspects.Common.Singleton
 {
     /// <summary>
     ///     An extendable singleton for a Game Manager
@@ -13,7 +14,7 @@ namespace Ninito.UsualSuspects
         // Start is called before the first frame update
         private void Start()
         {
-            DontDestroyOnLoad(target: gameObject);
+            DontDestroyOnLoad(gameObject);
         }
 
         #endregion
@@ -24,16 +25,19 @@ namespace Ninito.UsualSuspects
         ///     Loads a given scene
         /// </summary>
         /// <param name="sceneName">The build name of the scene</param>
-        public void LoadScene(string sceneName)
+        public virtual void LoadScene(string sceneName)
         {
-            SceneManager.LoadScene(sceneName: sceneName);
+            SceneManager.LoadScene(sceneName);
         }
 
         /// <summary>
         ///     Quits the game application
         /// </summary>
-        public void QuitApplication()
+        public virtual void QuitApplication()
         {
+#if UNITY_EDITOR
+            EditorApplication.isPlaying = false;
+#endif
             Application.Quit();
         }
 
