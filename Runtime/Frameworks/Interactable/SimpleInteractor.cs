@@ -47,10 +47,8 @@ namespace Ninito.UsualSuspects.Interactable
 
         public void OnInteract()
         {
-            foreach (IInteractable interactable in GetInteractablesInVolume())
-            {
-                interactable?.InteractWithAs(this);
-            }
+            IInteractable firstOrDefault = GetInteractablesInVolume().FirstOrDefault();
+            firstOrDefault?.InteractWithAs(this);
         }
 
         #endregion
@@ -89,7 +87,7 @@ namespace Ninito.UsualSuspects.Interactable
 
         #endregion
 
-        #region IActor Implementation
+        #region IInteractor Implementation
 
         public GameObject GameObject => gameObject;
 
