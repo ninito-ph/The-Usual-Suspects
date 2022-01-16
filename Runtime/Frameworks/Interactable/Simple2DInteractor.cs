@@ -12,7 +12,7 @@ namespace Ninito.UsualSuspects.Interactable
     /// <summary>
     ///     A simple class that provides basic interaction functionality
     /// </summary>
-    public sealed class Simple2DInteractor : MonoBehaviour, IInteractor
+    public class Simple2DInteractor : MonoBehaviour, IInteractor
     {
         #region Private Fields
 
@@ -53,36 +53,40 @@ namespace Ninito.UsualSuspects.Interactable
 
         #endregion
 
+        #region Protected Methods
+
+        protected virtual void UpdateInteractionTooltip()
+        {
+            IInteractable interactable = GetInteractableInVolume();
+
+            interactionTooltipText.text =
+                interactable == null ? String.Empty : interactable.InteractionToolTip;
+        }
+        
+        protected IInteractable GetInteractableInVolume()
+        {
+            return GetInteractablesInVolume().FirstOrDefault();
+        }
+        
+        protected IEnumerable<IInteractable> GetInteractablesInVolume()
+        {
+            return interactionArea.GetComponentsInVolume<IInteractable>();
+        }
+
+        #endregion
+
         #region Private Methods
 
         private IEnumerator PeriodicTooltipUpdate()
         {
             WaitForSeconds wait = new WaitForSeconds(periodicTooltipUpdateInterval);
             
-            // TODO: Check if this is a memory leak - it probably is
+            // Profile to see if this is a memory leak. I think it might be a very, very slow albeit existing one.
             while (true)
             {
                 UpdateInteractionTooltip();
                 yield return wait;
             }
-        }
-
-        private IInteractable GetInteractableInVolume()
-        {
-            return GetInteractablesInVolume().FirstOrDefault();
-        }
-        
-        private IEnumerable<IInteractable> GetInteractablesInVolume()
-        {
-            return interactionArea.GetComponentsInVolume<IInteractable>();
-        }
-
-        private void UpdateInteractionTooltip()
-        {
-            IInteractable interactable = GetInteractableInVolume();
-
-            interactionTooltipText.text =
-                interactable == null ? String.Empty : interactable.InteractionToolTip;
         }
 
         #endregion
