@@ -53,11 +53,11 @@ namespace Ninito.UnityExtended.WindowManager
         /// <summary>
         /// Overlays a given menu
         /// </summary>
-        /// <param name="desiredMenu">The menu to be overlayed</param>
-        public void OverlayMenu(string desiredMenu)
+        /// <param name="menuKey">The menu to be overlayed</param>
+        public void OverlayMenu(string menuKey)
         {
             // Sets the given menu active
-            menuObjects[desiredMenu].SetActive(true);
+            menuObjects[menuKey].SetActive(true);
 
             PlayWindowSound(openSound);
         }
@@ -65,13 +65,32 @@ namespace Ninito.UnityExtended.WindowManager
         /// <summary>
         /// Disables a menu
         /// </summary>
-        /// <param name="desiredMenu">The menu to be disabled</param>
-        public void DisableMenu(string desiredMenu)
+        /// <param name="menuKey">The menu to be disabled</param>
+        public void DisableMenu(string menuKey)
         {
             // Sets the given menu inactive
-            menuObjects[desiredMenu].SetActive(false);
+            menuObjects[menuKey].SetActive(false);
 
             PlayWindowSound(closeSound);
+        }
+
+        /// <summary>
+        /// Makes a menu inactive if it was active, and active if it was inactive
+        /// </summary>
+        /// <param name="menuKey">The menu to toggle</param>
+        public void ToggleMenu(string menuKey)
+        {
+            menuObjects[menuKey].SetActive(!IsMenuActive(menuKey));
+        }
+
+        /// <summary>
+        /// Checks whether a given menu is active
+        /// </summary>
+        /// <param name="menuKey">The menu to check</param>
+        /// <returns>Whether the menu is active</returns>
+        public bool IsMenuActive(string menuKey)
+        {
+            return menuObjects[menuKey].activeSelf;
         }
         
         #endregion
