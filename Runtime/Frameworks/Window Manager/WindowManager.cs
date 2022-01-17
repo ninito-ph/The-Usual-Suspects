@@ -81,6 +81,7 @@ namespace Ninito.UnityExtended.WindowManager
         public void ToggleMenu(string menuKey)
         {
             menuObjects[menuKey].SetActive(!IsMenuActive(menuKey));
+            PlayWindowSound(IsMenuActive(menuKey) ? openSound : closeSound);
         }
 
         /// <summary>
